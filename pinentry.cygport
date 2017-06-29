@@ -12,9 +12,11 @@ SRC_URI+=" http://pkgs.fedoraproject.org/cgit/rpms/pinentry.git/plain/pinentry-w
 PATCH_URI="
 	1.0.0-ncurses-internals.patch
 	1.0.0-wrapper-lxqt.patch
+	1.0.0-cygwin-w32.patch
+	1.0.0-libiconv.patch
 "
 
-PKG_NAMES="${NAME} ${NAME}-emacs ${NAME}-gnome3 ${NAME}-gtk2 ${NAME}-qt"
+PKG_NAMES="${NAME} ${NAME}-emacs ${NAME}-gnome3 ${NAME}-gtk2 ${NAME}-qt ${NAME}-w32"
 pinentry_CONTENTS="
 	usr/bin/pinentry
 	usr/bin/pinentry-curses.exe
@@ -35,7 +37,12 @@ pinentry_gtk2_CONTENTS="usr/bin/pinentry-gtk-2.exe"
 # KDE, LXQt
 pinentry_qt_SUMMARY=${SUMMARY/terminal/Qt}
 pinentry_qt_REQUIRES=${NAME}
+pinentry_qt_OBSOLETES="${NAME}-qt4"
 pinentry_qt_CONTENTS="usr/bin/pinentry-qt.exe"
+# ???
+pinentry_w32_SUMMARY=${SUMMARY/terminal/W32}
+pinentry_w32_REQUIRES=${NAME}
+pinentry_w32_CONTENTS="usr/bin/pinentry-w32.exe"
 
 CYGCONF_ARGS="
 	--disable-fallback-curses
