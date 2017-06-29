@@ -37,7 +37,7 @@ pinentry_gtk2_CONTENTS="usr/bin/pinentry-gtk-2.exe"
 # KDE, LXQt
 pinentry_qt_SUMMARY=${SUMMARY/terminal/Qt}
 pinentry_qt_REQUIRES=${NAME}
-pinentry_qt_OBSOLETES="${NAME}-qt4"
+pinentry_qt_OBSOLETES="${NAME}-qt3 ${NAME}-qt4"
 pinentry_qt_CONTENTS="usr/bin/pinentry-qt.exe"
 # ???
 pinentry_w32_SUMMARY=${SUMMARY/terminal/W32}
